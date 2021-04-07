@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="813.0" prefWidth="1283.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.danhMucTT.Controller">
+   <children>
+      <Text layoutX="418.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DANH MỤC THÔNG TIN SÁCH">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Text>
+      <Button layoutX="167.0" layoutY="141.0" mnemonicParsing="false" onAction="#add" prefHeight="31.0" prefWidth="124.0" text="     Thêm" />
+      <Button layoutX="441.0" layoutY="144.0" mnemonicParsing="false" onAction="#remove" prefHeight="31.0" prefWidth="124.0" text="     Lưu" />
+      <Button layoutX="722.0" layoutY="143.0" mnemonicParsing="false" onAction="#save" prefHeight="31.0" prefWidth="124.0" text="     Xóa" />
+      <Button layoutX="1009.0" layoutY="144.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="124.0" text="     Sửa" />
+      <ImageView fitHeight="31.0" fitWidth="23.0" layoutX="182.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/iconThem.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="26.0" fitWidth="23.0" layoutX="459.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/save.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="25.0" fitWidth="23.0" layoutX="731.0" layoutY="148.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/iconXoa.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="22.0" fitWidth="23.0" layoutX="1022.0" layoutY="148.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/fix.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="63.0" layoutY="742.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="113.0" text="     Tìm kiếm" />
+      <Button layoutX="1131.0" layoutY="742.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="102.0" text="Trang chủ" />
+      <TableView fx:id="tbView" layoutX="403.0" layoutY="272.0" prefHeight="403.0" prefWidth="830.0">
+         <columns>
+            <TableColumn fx:id="TS" prefWidth="182.0" text="Tên sách" />
+            <TableColumn fx:id="TL" prefWidth="131.0" text="Thể loại" />
+            <TableColumn fx:id="TT" prefWidth="137.0" text="Tình trạng" />
+            <TableColumn fx:id="SL" prefWidth="88.0" text="Số lượng" />
+            <TableColumn fx:id="MNXB" prefWidth="114.0" text="Mã NXB" />
+            <TableColumn fx:id="NNXB" prefWidth="177.0" text="Năm NXB" />
+         </columns>
+      </TableView>
+      <Text layoutX="752.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bảng thông tin">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="63.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thông tin sách">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <TextField fx:id="Masach" layoutX="63.0" layoutY="675.0" promptText="Năm NXB" />
+      <TextField fx:id="Tensach" layoutX="65.0" layoutY="612.0" promptText="Mã NXB" />
+      <TextField fx:id="Theloai" layoutX="65.0" layoutY="549.0" promptText="Số lượng" />
+      <TextField fx:id="Tinhtrang" layoutX="65.0" layoutY="484.0" promptText="Tình trạng" />
+      <TextField fx:id="Soluong" layoutX="65.0" layoutY="418.0" promptText="Thể loại" />
+      <TextField fx:id="MaNXB" layoutX="65.0" layoutY="352.0" promptText="Tên sách" />
+      <TextField fx:id="NamNXB" layoutX="65.0" layoutY="282.0" promptText="Mã sách" />
+      <TextField fx:id="Search" layoutX="198.0" layoutY="742.0" promptText="Tên sách ..." />
+      <Line endX="100.0" layoutX="90.0" layoutY="201.0" startX="-100.0" />
+      <Line endX="100.0" layoutX="283.0" layoutY="201.0" startX="-100.0" />
+      <Line endX="100.0" layoutX="470.0" layoutY="201.0" startX="-100.0" />
+      <Line endX="100.0" layoutX="665.0" layoutY="201.0" startX="-100.0" />
+      <Line endX="100.0" layoutX="854.0" layoutY="201.0" startX="-100.0" />
+      <Line endX="100.0" layoutX="1032.0" layoutY="201.0" startX="-100.0" />
+      <Line endX="100.0" layoutX="1204.0" layoutY="201.0" startX="-100.0" />
+      <ImageView fitHeight="23.0" fitWidth="31.0" layoutX="69.0" layoutY="747.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/iconTim.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>

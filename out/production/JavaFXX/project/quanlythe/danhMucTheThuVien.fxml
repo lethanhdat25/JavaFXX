@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="494.0" prefWidth="752.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.quanlythe.Controller">
+   <children>
+      <Text layoutX="478.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DANH MỤC THẺ THƯ VIỆN" wrappingWidth="327.20068359375">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <DatePicker fx:id="NgaySinh" layoutX="777.0" layoutY="93.0" prefHeight="27.0" prefWidth="161.0" />
+      <Text layoutX="655.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ngày Sinh">
+         <font>
+            <Font size="16.0" />
+         </font></Text>
+      <TextField fx:id="Diachi" layoutX="777.0" layoutY="186.0" prefHeight="31.0" prefWidth="484.0" />
+      <Text layoutX="655.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Địa chỉ" wrappingWidth="118.0">
+         <font>
+            <Font size="17.0" />
+         </font></Text>
+      <DatePicker fx:id="NgayTao" layoutX="1100.0" layoutY="136.0" prefHeight="31.0" prefWidth="161.0" />
+      <Text layoutX="655.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ngày Tạo ">
+         <font>
+            <Font size="17.0" />
+         </font></Text>
+      <DatePicker fx:id="NgayHH" layoutX="777.0" layoutY="138.0" prefHeight="31.0" prefWidth="161.0" />      <Text layoutX="53.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Giới Tính" wrappingWidth="84.0" />
+      <TextField fx:id="Sdt" layoutX="191.0" layoutY="136.0" />
+      <TextField fx:id="TenSV" layoutX="191.0" layoutY="93.0" />
+      <Text layoutX="54.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Điện Thoại" />
+      <Text layoutX="54.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tên SV" />
+      <Text layoutX="53.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thông Tin Sinh Viên">
+         <font>
+            <Font size="21.0" />
+         </font></Text>
+      <Button layoutX="965.0" layoutY="626.0" mnemonicParsing="false" onAction="#Tim" prefHeight="31.0" prefWidth="109.0" text="      Tìm" textAlignment="CENTER">
+         <graphic>
+            <ImageView fitHeight="27.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/iconTim.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <TextField fx:id="Tim" layoutX="1119.0" layoutY="625.0" prefHeight="32.0" prefWidth="142.0" />
+      <Button layoutX="1150.0" layoutY="471.0" mnemonicParsing="false" onAction="#Thoat" prefHeight="31.0" prefWidth="109.0" text="      Thoát" textAlignment="CENTER">
+         <graphic>
+            <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/iconThoat.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button layoutX="965.0" layoutY="471.0" mnemonicParsing="false" onAction="#Luu" prefHeight="31.0" prefWidth="109.0" text="        Lưu" textAlignment="CENTER">
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/iconIn.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button layoutX="1144.0" layoutY="299.0" mnemonicParsing="false" onAction="#Xoa" prefHeight="31.0" prefWidth="109.0" text="       Xoá" textAlignment="CENTER">
+         <graphic>
+            <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/iconXoa.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button layoutX="964.0" layoutY="299.0" mnemonicParsing="false" onAction="#Them" prefHeight="31.0" prefWidth="109.0" text="     Thêm" textAlignment="CENTER">
+         <graphic>
+            <ImageView fitHeight="21.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/iconThem.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <TableView fx:id="tbView" layoutX="23.0" layoutY="299.0" prefHeight="476.0" prefWidth="894.0">
+         <columns>
+            <TableColumn fx:id="tbTen" prefWidth="127.0" text="Tên SV" />
+            <TableColumn fx:id="tbSdt" prefWidth="98.0" text="Điện Thoại" />
+            <TableColumn fx:id="tbSex" prefWidth="83.0" text="Giới Tính" />
+            <TableColumn fx:id="tbNS" prefWidth="99.0" text="Ngày Sinh" />
+            <TableColumn fx:id="tbDiachi" minWidth="0.0" prefWidth="178.0" text="Địa chỉ" />
+            <TableColumn fx:id="tbNT" prefWidth="148.0" text="Ngày Tạo" />
+            <TableColumn fx:id="tbNH" prefWidth="160.0" text="Ngày  hết hạn" />
+         </columns>
+      </TableView>
+      <Text layoutX="23.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bảng Thông Tin Thẻ Thư Viện" wrappingWidth="419.17578125">
+         <font>
+            <Font size="21.0" />
+         </font></Text>
+      <Text layoutX="988.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hết Hạn">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <Line endX="100.0" layoutX="100.0" layoutY="240.0" startX="-100.0" />
+      <Line endX="100.0" layoutX="292.0" layoutY="240.0" startX="-100.0" />
+      <Line endX="100.0" layoutX="488.0" layoutY="240.0" startX="-100.0" />
+      <Line endX="100.0" layoutX="683.0" layoutY="240.0" startX="-100.0" />
+      <Line endX="100.0" layoutX="878.0" layoutY="240.0" startX="-100.0" />
+      <Line endX="100.0" layoutX="1073.0" layoutY="240.0" startX="-100.0" />
+      <Line endX="100.0" layoutX="1181.0" layoutY="240.0" startX="-100.0" />
+      <TextField fx:id="Sex" layoutX="191.0" layoutY="180.0" prefHeight="27.0" prefWidth="109.0" />
+      <Button layoutX="711.0" layoutY="252.0" mnemonicParsing="false" onAction="#thayDoi" prefHeight="31.0" prefWidth="98.0" text="Thay Doi" />
+      <Text fx:id="thongbao" fill="RED" layoutX="422.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="410.22900390625">
+         <font>
+            <Font size="20.0" />
+         </font></Text>
+   </children>
+</Pane>
