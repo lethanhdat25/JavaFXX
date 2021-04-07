@@ -90,6 +90,9 @@ public class Controller implements Initializable {
         for (TheSV sv:
                 ds) {
             if(modelTheSV.Luu(sv.getMaThe(),sv.getName(),sv.getSdt(),sv.getDiachi(),sv.getNgayTao(),sv.getNgayHH(),sv.getNgaySinh(),sv.getSex())){
+                System.out.println("Them Thong Cong");
+            }else{
+                System.out.println("Them Thai Bai");
             }
         }
     }

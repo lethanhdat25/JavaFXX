@@ -10,6 +10,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import project.Quanly.TheSV;
 import project.Quanly.ThongTinSach;
+import project.TheSV.ModelTheSV;
+import project.sach.ModelSach;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -18,15 +20,20 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        MS.setCellValueFactory(new PropertyValueFactory<ThongTinSach,Integer>("MaSach"));
         TS.setCellValueFactory(new PropertyValueFactory<ThongTinSach,String>("Tensach"));
         TL.setCellValueFactory(new PropertyValueFactory<ThongTinSach,String>("Theloai"));
         TT.setCellValueFactory(new PropertyValueFactory<ThongTinSach,String>("Tinhtrang"));
         SL.setCellValueFactory(new PropertyValueFactory<ThongTinSach,Integer>("Soluong"));
         MNXB.setCellValueFactory(new PropertyValueFactory<ThongTinSach,String>("MaNXB"));
         NNXB.setCellValueFactory(new PropertyValueFactory<ThongTinSach,String>("NamNXB"));
+        try{
+            ModelSach modelSach=new ModelSach();
+            ds.addAll(modelSach.getList());
+            tbView.setItems(ds);
+        }catch (Exception e){
+
+        }
     }
-    public static Integer IdSach;
     public TextField Masach;
     public TextField Tensach;
     public TextField Theloai;
@@ -37,7 +44,6 @@ public class Controller implements Initializable {
     public TextField Search;
     ObservableList<ThongTinSach> ds = FXCollections.observableArrayList();
     public TableView<ThongTinSach> tbView;
-    public TableColumn<ThongTinSach,Integer> MS;
     public TableColumn<ThongTinSach,String> TS;
     public TableColumn<ThongTinSach,String> TL;
     public TableColumn<ThongTinSach,String> TT;

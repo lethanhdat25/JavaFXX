@@ -12,12 +12,6 @@ import java.util.ResourceBundle;
 
 public class Controller  {
 
-    public void baocao() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../danhMucTT/danhMucThongTinSach.fxml"));
-        Main.menuStage.setTitle("Hello World");
-        Main.menuStage.setScene(new Scene(root, 1283, 813));
-        Main.menuStage.show();
-    }
     public  void muontra() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("../quanlythe/danhMucTheThuVien.fxml"));
         Main.menuStage.setTitle("Hello World");
@@ -25,7 +19,7 @@ public class Controller  {
         Main.menuStage.show();
     }
     public void sinhvien() throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("../danhMucTT/danhMucThongTinSach.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../quanlythe/danhMucTheThuVien.fxml"));
         Main.menuStage.setTitle("Hello World");
         Main.menuStage.setScene(new Scene(root, 1283, 813));
         Main.menuStage.show();
