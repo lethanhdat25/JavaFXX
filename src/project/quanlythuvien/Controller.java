@@ -13,7 +13,7 @@ import java.util.ResourceBundle;
 public class Controller  {
 
     public  void muontra() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../quanlythe/danhMucTheThuVien.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../quanlymuontra/ThuVien_MuonTra.fxml"));
         Main.menuStage.setTitle("Hello World");
         Main.menuStage.setScene(new Scene(root, 1283, 813));
         Main.menuStage.show();

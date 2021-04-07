@@ -66,8 +66,12 @@ public class ModelTheSV implements DataAccessObject<TheSV> {
             st.execute(txt_sql);
             return  true;
         }catch (SQLException e){
-            System.out.println(e.getMessage());
         }
+        return false;
+    }
+
+    @Override
+    public boolean LuuMuonTra(String tennguoi, String sdt, String tensach, String ngaymuon, String ngaytra) {
         return false;
     }
 }

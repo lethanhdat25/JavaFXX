@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.quanlymuontra.Controller">
+   <children>
+      <Text layoutX="150.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DANH SACH NGUOI MUON SACH" wrappingWidth="300.92138671875">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <TextField fx:id="tennguoimuon" layoutX="39.0" layoutY="72.0" promptText="Ten nguoi muon" />
+      <TextField fx:id="sdt" layoutX="39.0" layoutY="124.0" promptText="sdt" />
+      <TextField fx:id="tenSach" layoutX="39.0" layoutY="173.0" promptText="ten sach" />
+      <Button layoutX="39.0" layoutY="321.0" mnemonicParsing="false" onAction="#Them" prefHeight="24.0" prefWidth="82.0" text="Them Vao" />
+      <TableView fx:id="tbView" layoutX="218.0" layoutY="73.0" prefHeight="301.0" prefWidth="371.0">
+        <columns>
+          <TableColumn fx:id="tbName" prefWidth="75.0" text="Ten" />
+          <TableColumn fx:id="tbSdt" prefWidth="75.0" text="SDT" />
+            <TableColumn fx:id="tbTenSach" prefWidth="75.0" text="Ten Sach" />
+            <TableColumn fx:id="tbNgayMuon" prefWidth="75.0" text="Ngay Muon" />
+            <TableColumn fx:id="tbNgayTra" prefWidth="75.0" text="Ngay Tra" />
+        </columns>
+      </TableView>
+      <TextField fx:id="nhapTen" layoutX="110.0" layoutY="361.0" prefHeight="27.0" prefWidth="89.0" promptText="Nhap Ten" />
+      <Button layoutX="39.0" layoutY="361.0" mnemonicParsing="false" onAction="#Tim" text="Tim" />
+      <DatePicker fx:id="ngayMuon" layoutX="39.0" layoutY="224.0" prefHeight="15.0" prefWidth="160.0" promptText="Ngay Muon" />
+      <DatePicker fx:id="ngayTra" layoutX="39.0" layoutY="274.0" prefHeight="24.0" prefWidth="160.0" promptText="Ngay Tra" />
+      <Button  layoutX="128.0" layoutY="321.0" mnemonicParsing="false" onAction="#Luu" prefHeight="24.0" prefWidth="72.0" text="Luu" />
+      <Button layoutX="497.0" layoutY="387.0" mnemonicParsing="false" onAction="#Them" prefHeight="24.0" prefWidth="82.0" text="Xoa" />
+   </children>
+</Pane>
