@@ -46,7 +46,7 @@ public class ModelSach implements DataAccessObject2<ThongTinSach> {
     public boolean remove(ThongTinSach thongTinSach) {
         try {
             Statement st=Connector.getInstance().getStatement();
-            String txt_sql = "delete from thongtinsach where tenSach = "+ thongTinSach.getTensach() ;
+            String txt_sql = "delete from thongTinSach where tenSach like '%"+thongTinSach.getTensach()+"'" ;
             st.execute(txt_sql);
             return true;
         }catch (Exception e){
