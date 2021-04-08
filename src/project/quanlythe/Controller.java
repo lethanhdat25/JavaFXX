@@ -79,10 +79,6 @@ public class Controller implements Initializable {
     }
     public void Xoa(){
         TheSV layTen=tbView.getSelectionModel().getSelectedItem();
-        TenSV.setText(layTen.getName());
-        ModelTheSV modelTheSV=new ModelTheSV();
-        if (modelTheSV.Xoa(layTen)){
-        }
         tbView.getItems().remove(layTen);
     }
     public void Luu(){
@@ -102,9 +98,7 @@ public class Controller implements Initializable {
         dsTim.addAll(modelTheSV.Tim(Tim.getText()));
         tbView.setItems(dsTim);
     }
-    public void thayDoi(){
 
-    }
     public void Thoat() throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("../quanlythuvien/project.fxml"));
         Main.menuStage.setTitle("Hello World");
