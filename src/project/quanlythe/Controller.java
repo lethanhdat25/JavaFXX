@@ -79,6 +79,10 @@ public class Controller implements Initializable {
     }
     public void Xoa(){
         TheSV layTen=tbView.getSelectionModel().getSelectedItem();
+        TenSV.setText(layTen.getName());
+        ModelTheSV modelTheSV=new ModelTheSV();
+        if (modelTheSV.Xoa(layTen)){
+        }
         tbView.getItems().remove(layTen);
     }
     public void Luu(){

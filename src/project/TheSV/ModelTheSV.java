@@ -27,6 +27,19 @@ public class ModelTheSV implements DataAccessObject<TheSV> {
     }
 
     @Override
+    public boolean Xoa(TheSV theSV) {
+        try {
+            Statement st=Connector.getInstance().getStatement();
+            String txt_sql = "delete from ThuVien_TheSV where id = "+theSV.getMaThe();
+            st.execute(txt_sql);
+            return true;
+        }catch (Exception e){
+
+        }
+        return false;
+    }
+
+    @Override
     public ArrayList<TheSV> Tim(String ten) {
         ArrayList<TheSV> dss= new ArrayList<>();
         // kiem tra xem co hay ko thi tra ve object
