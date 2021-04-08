@@ -102,7 +102,9 @@ public class Controller implements Initializable {
         dsTim.addAll(modelTheSV.Tim(Tim.getText()));
         tbView.setItems(dsTim);
     }
+    public void thayDoi(){
 
+    }
     public void Thoat() throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("../quanlythuvien/project.fxml"));
         Main.menuStage.setTitle("Hello World");
