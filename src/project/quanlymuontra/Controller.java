@@ -54,7 +54,7 @@ public class Controller implements Initializable {
         LocalDate ngayM=ngayMuon.getValue();
         LocalDate ngayT=ngayTra.getValue();
         if(!n.isEmpty()&&!phone.isEmpty()&&!tenS.isEmpty()&&!ngayM.toString().isEmpty()&&!ngayT.toString().isEmpty()){
-            Quanlymuontra ql=new Quanlymuontra(n,phone,tenS,ngayM.toString(),ngayT.toString());
+            Quanlymuontra ql=new Quanlymuontra(null,n,phone,tenS,ngayM.toString(),ngayT.toString());
             ds.add(ql);
             tbView.setItems(ds);
         }
@@ -64,7 +64,7 @@ public class Controller implements Initializable {
         for (Quanlymuontra sv:
                 ds) {
             if (!ds.contains(sv.getTennguoimuon())&&!ds.contains(sv.getSdt())&&!ds.contains(sv.getTensach())&& !ds.contains(sv.getNgaymuon())) {
-                if (modelMuonTra.LuuMuonTra(sv.getTennguoimuon(), sv.getSdt(), sv.getTensach(), sv.getNgaymuon(), sv.getNgaytra())) {
+                if (modelMuonTra.LuuMuonTra(null,sv.getTennguoimuon(), sv.getSdt(), sv.getTensach(), sv.getNgaymuon(), sv.getNgaytra())) {
                     System.out.println("Them Thong Cong");
                 } else {
                     System.out.println("Them Thai Bai");

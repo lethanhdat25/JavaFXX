@@ -56,11 +56,11 @@ public class ModelSach implements DataAccessObject2<ThongTinSach> {
     }
 
     @Override
-    public boolean save(String tenSach, String theLoai, String tinhTrang, Integer soLuong, String maNXB, Integer namNXB) {
+    public boolean save(Integer masach,String tenSach, String theLoai, String tinhTrang, Integer soLuong, String maNXB, Integer namNXB) {
         try {
             Statement st = Connector.getInstance().getStatement();
-            String txt_sql = "insert into thongtinsach(tenSach,theLoai,tinhTrang,soLuong,maNXB,namNXB) " +
-                    "values('"+tenSach+"'"+",'"+theLoai+"'"+",'"+tinhTrang+"'"
+            String txt_sql = "insert into thongtinsach(id,tenSach,theLoai,tinhTrang,soLuong,maNXB,namNXB) " +
+                    "values("+masach+",'"+tenSach+"'"+",'"+theLoai+"'"+",'"+tinhTrang+"'"
                     +",'"+soLuong+"'"+",'"+maNXB+"'"+",'"+namNXB+"')";
             st.execute(txt_sql);
             return  true;

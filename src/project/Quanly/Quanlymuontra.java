@@ -1,18 +1,28 @@
 package project.Quanly;
 
 public class Quanlymuontra {
+    Integer id;
     String tennguoimuon;
     String sdt;
     String tensach;
     String ngaymuon;
     String ngaytra;
 
-    public Quanlymuontra(String tennguoimuon, String sdt, String tensach, String ngaymuon, String ngaytra) {
+    public Quanlymuontra(Integer id, String tennguoimuon, String sdt, String tensach, String ngaymuon, String ngaytra) {
+        this.id = id;
         this.tennguoimuon = tennguoimuon;
         this.sdt = sdt;
         this.tensach = tensach;
         this.ngaymuon = ngaymuon;
         this.ngaytra = ngaytra;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getTennguoimuon() {

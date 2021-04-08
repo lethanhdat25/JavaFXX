@@ -71,7 +71,7 @@ public class ModelTheSV implements DataAccessObject<TheSV> {
     }
 
     @Override
-    public boolean LuuMuonTra(String tennguoi, String sdt, String tensach, String ngaymuon, String ngaytra) {
+    public boolean LuuMuonTra(Integer id,String tennguoi, String sdt, String tensach, String ngaymuon, String ngaytra) {
         return false;
     }
 }

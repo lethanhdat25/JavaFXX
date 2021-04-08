@@ -34,7 +34,6 @@ public class Controller implements Initializable {
 
         }
     }
-    public TextField Masach;
     public TextField Tensach;
     public TextField Theloai;
     public TextField Tinhtrang;
@@ -57,9 +56,9 @@ public class Controller implements Initializable {
         String tt = Tinhtrang.getText();
         Integer sl = Integer.parseInt(Soluong.getText()) ;
         String mnxb = MaNXB.getText();
-        Integer nnxb = Integer.parseInt(NNXB.getText());
+        Integer nnxb = Integer.parseInt(NamNXB.getText());
         if (ts!=null && tl!=null && tt!=null && sl!=null && mnxb!=null && nnxb!=null ){
-            ThongTinSach tts = new ThongTinSach(1,ts,tl,tt,sl,mnxb,nnxb);
+            ThongTinSach tts = new ThongTinSach(null,ts,tl,tt,sl,mnxb,nnxb);
             ds.add(tts);
             tbView.setItems(ds);
         }
@@ -73,7 +72,15 @@ public class Controller implements Initializable {
         SingleThe.forEach(allThe::remove);
     }
     public void save(){
-
+        ModelSach modelSach=new ModelSach();
+        for (ThongTinSach x:
+             ds) {
+            if(modelSach.save(x.getMasach(),x.getTensach(),x.getTheloai(),x.getTinhtrang(),x.getSoluong(),x.getMaNXB(),x.getNamNXB())){
+                System.out.println("Them Thanh Cong");
+            }else {
+                System.out.println("Them Thai Bai");
+            }
+        }
     }
 }
 

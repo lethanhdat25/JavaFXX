@@ -19,7 +19,7 @@ public class ModelMuonTra implements DataAccessObject {
             String txt_sql="select * from ThuVien_MuonTra";
             ResultSet rs=st.executeQuery(txt_sql);
             while (rs.next()){
-                Quanlymuontra sv=new Quanlymuontra(rs.getString("TenNguoiMuon"),rs.getString("Sdt"),rs.getString("TenSach"),rs.getString("NgayMuon"),rs.getString("NgayTra"));
+                Quanlymuontra sv=new Quanlymuontra(rs.getInt("id"),rs.getString("TenNguoiMuon"),rs.getString("Sdt"),rs.getString("TenSach"),rs.getString("NgayMuon"),rs.getString("NgayTra"));
                 dss.add(sv);
             }
         }catch (Exception e){
@@ -37,7 +37,7 @@ public class ModelMuonTra implements DataAccessObject {
             Statement st = Connector.getInstance().getStatement();
             ResultSet rs = st.executeQuery(txt_sql);
             while (rs.next()){
-                Quanlymuontra sv=new Quanlymuontra(rs.getString("TenNguoiMuon"),rs.getString("Sdt"),rs.getString("TenSach"),rs.getString("NgayMuon"),rs.getString("NgayTra"));
+                Quanlymuontra sv=new Quanlymuontra(rs.getInt("id"),rs.getString("TenNguoiMuon"),rs.getString("Sdt"),rs.getString("TenSach"),rs.getString("NgayMuon"),rs.getString("NgayTra"));
                 dss.add(sv);
             }
         }catch (Exception e){
@@ -57,14 +57,29 @@ public class ModelMuonTra implements DataAccessObject {
     }
 
     @Override
-    public boolean LuuMuonTra(String tennguoi, String sdt, String tensach, String ngaymuon, String ngaytra) {
+    public boolean LuuMuonTra(Integer id,String tennguoi, String sdt, String tensach, String ngaymuon, String ngaytra) {
         try {
             Statement st = Connector.getInstance().getStatement();
-            String txt_sql = "insert into ThuVien_MuonTra(TenNguoiMuon,Sdt,TenSach,NgayMuon,NgayTra) " +
-                    "values("+"'"+tennguoi+"','"+sdt+"'"+",'"+tensach+"'"+",'"+ngaymuon+"'"
-                    +",'"+ngaytra+"'"+")";
-            st.execute(txt_sql);
-            return  true;
+            String soluong_hientai="select soLuong from thongtinsach where tenSach like("+"'%"+tensach+"%'"+")";
+            ResultSet rs=st.executeQuery(soluong_hientai);
+            Integer x=0;
+            while (rs.next()){
+                x = rs.getInt("soLuong");
+            }
+            if (x>=2) {
+                Statement stt1 = Connector.getInstance().getStatement();
+                String txt_sql = "insert into ThuVien_MuonTra(id,TenNguoiMuon,Sdt,TenSach,NgayMuon,NgayTra) " +
+                        "values("+id+",'"+ tennguoi + "','" + sdt + "'" + ",'" + tensach + "'" + ",'" + ngaymuon + "'"
+                        + ",'" + ngaytra + "'" + ")";
+                stt1.execute(txt_sql);
+                Integer soluong_conlai=x-1;
+                Statement stt2 = Connector.getInstance().getStatement();
+                String update="UPDATE thongtinsach SET soLuong ="+soluong_conlai+" where tenSach like("+"'%"+tensach+"'"+")";
+                stt2.execute(update);
+                return true;
+            }else {
+                return false;
+            }
         }catch (SQLException e){
             System.out.println(e.getMessage());
         }
