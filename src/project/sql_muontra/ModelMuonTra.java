@@ -45,6 +45,12 @@ public class ModelMuonTra implements DataAccessObject {
         return dss;
     }
 
+
+    @Override
+    public boolean Xoa(Object o) {
+        return false;
+    }
+
     @Override
     public boolean Luu(Integer maThe, String name, String sdt, String diachi, String ngayTao, String ngayHH, String ngaySinh, String sex) {
         return false;
