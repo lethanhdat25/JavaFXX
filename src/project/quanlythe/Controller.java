@@ -68,10 +68,23 @@ public class Controller implements Initializable {
             TheSV tSV = new TheSV(null, n, sdt, dC, nT.toString(), nHH.toString(), nS.toString(), sex);
             ds.add(tSV);
             tbView.setItems(ds);
-            TenSV.setText("");
-            Sdt.setText("");
-            Diachi.setText("");
-            Sex.setText("");
+            try {
+                ModelTheSV modelTheSV=new ModelTheSV();
+                for (TheSV sv:
+                        ds) {
+                    if(modelTheSV.Luu(sv.getMaThe(),sv.getName(),sv.getSdt(),sv.getDiachi(),sv.getNgayTao(),sv.getNgayHH(),sv.getNgaySinh(),sv.getSex())){
+                        System.out.println("Them Thong Cong");
+                    }else{
+                        System.out.println("Them Thai Bai");
+                    }
+                }
+                thongbao.setText("");
+                Parent root = FXMLLoader.load(getClass().getResource("../quanlythe/danhMucTheThuVien.fxml"));
+                Main.menuStage.setScene(new Scene(root, 1283, 813));
+
+            }catch (Exception e){
+
+            }
         }else{
             thongbao.setText("Ban phai nhap thong tin day du!");
         }
@@ -79,32 +92,19 @@ public class Controller implements Initializable {
     }
     public void Xoa(){
         TheSV layTen=tbView.getSelectionModel().getSelectedItem();
-        TenSV.setText(layTen.getName());
         ModelTheSV modelTheSV=new ModelTheSV();
         if (modelTheSV.Xoa(layTen)){
         }
         tbView.getItems().remove(layTen);
     }
-    public void Luu(){
-        ModelTheSV modelTheSV=new ModelTheSV();
-        for (TheSV sv:
-                ds) {
-            if(modelTheSV.Luu(sv.getMaThe(),sv.getName(),sv.getSdt(),sv.getDiachi(),sv.getNgayTao(),sv.getNgayHH(),sv.getNgaySinh(),sv.getSex())){
-                System.out.println("Them Thong Cong");
-            }else{
-                System.out.println("Them Thai Bai");
-            }
-        }
-    }
+
     public void Tim(){
         dsTim.remove(0,dsTim.size());
         ModelTheSV modelTheSV=new ModelTheSV();
         dsTim.addAll(modelTheSV.Tim(Tim.getText()));
         tbView.setItems(dsTim);
     }
-    public void thayDoi(){
 
-    }
     public void Thoat() throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("../quanlythuvien/project.fxml"));
         Main.menuStage.setTitle("Hello World");

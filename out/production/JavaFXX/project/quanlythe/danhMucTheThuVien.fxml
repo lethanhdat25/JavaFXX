@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="494.0" prefWidth="752.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.quanlythe.Controller">
    <children>
@@ -39,7 +39,7 @@
          <font>
             <Font size="21.0" />
          </font></Text>
-      <Button layoutX="965.0" layoutY="626.0" mnemonicParsing="false" onAction="#Tim" prefHeight="31.0" prefWidth="109.0" text="      Tìm" textAlignment="CENTER">
+      <Button layoutX="965.0" layoutY="465.0" mnemonicParsing="false" onAction="#Tim" prefHeight="31.0" prefWidth="109.0" text="      Tìm" textAlignment="CENTER">
          <graphic>
             <ImageView fitHeight="27.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -47,20 +47,12 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <TextField fx:id="Tim" layoutX="1119.0" layoutY="625.0" prefHeight="32.0" prefWidth="142.0" />
-      <Button layoutX="1150.0" layoutY="471.0" mnemonicParsing="false" onAction="#Thoat" prefHeight="31.0" prefWidth="109.0" text="      Thoát" textAlignment="CENTER">
+      <TextField fx:id="Tim" layoutX="1110.0" layoutY="464.0" prefHeight="32.0" prefWidth="142.0" />
+      <Button layoutX="1144.0" layoutY="635.0" mnemonicParsing="false" onAction="#Thoat" prefHeight="31.0" prefWidth="109.0" text="    Trang chủ" textAlignment="CENTER">
          <graphic>
             <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../image/iconThoat.png" />
-               </image>
-            </ImageView>
-         </graphic></Button>
-      <Button layoutX="965.0" layoutY="471.0" mnemonicParsing="false" onAction="#Luu" prefHeight="31.0" prefWidth="109.0" text="        Lưu" textAlignment="CENTER">
-         <graphic>
-            <ImageView fitHeight="22.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/iconIn.png" />
                </image>
             </ImageView>
          </graphic></Button>
@@ -108,7 +100,6 @@
       <Line endX="100.0" layoutX="1073.0" layoutY="240.0" startX="-100.0" />
       <Line endX="100.0" layoutX="1181.0" layoutY="240.0" startX="-100.0" />
       <TextField fx:id="Sex" layoutX="191.0" layoutY="180.0" prefHeight="27.0" prefWidth="109.0" />
-      <Button layoutX="711.0" layoutY="252.0" mnemonicParsing="false" onAction="#thayDoi" prefHeight="31.0" prefWidth="98.0" text="Thay Doi" />
       <Text fx:id="thongbao" fill="RED" layoutX="422.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="410.22900390625">
          <font>
             <Font size="20.0" />

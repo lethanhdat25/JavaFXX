@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class ModelMuonTra implements DataAccessObject {
+public class ModelMuonTra implements DataAccessObject<Quanlymuontra> {
     @Override
     public ArrayList<Quanlymuontra> getList() {
         ArrayList<Quanlymuontra> dss=new ArrayList<>();
@@ -33,7 +33,7 @@ public class ModelMuonTra implements DataAccessObject {
         ArrayList<Quanlymuontra> dss= new ArrayList<>();
         // kiem tra xem co hay ko thi tra ve object
         try {
-            String txt_sql = "select * from ThuVien_MuonTra where Ten like '%"+ten+"'";
+            String txt_sql = "select * from ThuVien_MuonTra where TenNguoiMuon like '%"+ten+"'";
             Statement st = Connector.getInstance().getStatement();
             ResultSet rs = st.executeQuery(txt_sql);
             while (rs.next()){
@@ -47,7 +47,15 @@ public class ModelMuonTra implements DataAccessObject {
 
 
     @Override
-    public boolean Xoa(Object o) {
+    public boolean Xoa(Quanlymuontra quanlymuontra) {
+        try {
+            Statement st=Connector.getInstance().getStatement();
+            String txt_sql = "delete from ThuVien_MuonTra where id = "+quanlymuontra.getId();
+            st.execute(txt_sql);
+            return true;
+        }catch (Exception e){
+
+        }
         return false;
     }
 
@@ -66,16 +74,16 @@ public class ModelMuonTra implements DataAccessObject {
             while (rs.next()){
                 x = rs.getInt("soLuong");
             }
-            if (x>=2) {
+            if (x>=1) {
                 Statement stt1 = Connector.getInstance().getStatement();
                 String txt_sql = "insert into ThuVien_MuonTra(id,TenNguoiMuon,Sdt,TenSach,NgayMuon,NgayTra) " +
                         "values("+id+",'"+ tennguoi + "','" + sdt + "'" + ",'" + tensach + "'" + ",'" + ngaymuon + "'"
                         + ",'" + ngaytra + "'" + ")";
-                stt1.execute(txt_sql);
+                st.execute(txt_sql);
                 Integer soluong_conlai=x-1;
                 Statement stt2 = Connector.getInstance().getStatement();
                 String update="UPDATE thongtinsach SET soLuong ="+soluong_conlai+" where tenSach like("+"'%"+tensach+"'"+")";
-                stt2.execute(update);
+                st.execute(update);
                 return true;
             }else {
                 return false;

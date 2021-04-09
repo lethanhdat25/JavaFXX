@@ -2,12 +2,16 @@ package project.quanlymuontra;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import project.Main;
 import project.Quanly.Quanlymuontra;
 import project.Quanly.TheSV;
 import project.TheSV.ModelTheSV;
@@ -57,22 +61,42 @@ public class Controller implements Initializable {
             Quanlymuontra ql=new Quanlymuontra(null,n,phone,tenS,ngayM.toString(),ngayT.toString());
             ds.add(ql);
             tbView.setItems(ds);
-        }
-    }
-    public void Luu(){
-        ModelMuonTra modelMuonTra=new ModelMuonTra();
-        for (Quanlymuontra sv:
-                ds) {
-            if (!ds.contains(sv.getTennguoimuon())&&!ds.contains(sv.getSdt())&&!ds.contains(sv.getTensach())&& !ds.contains(sv.getNgaymuon())) {
-                if (modelMuonTra.LuuMuonTra(null,sv.getTennguoimuon(), sv.getSdt(), sv.getTensach(), sv.getNgaymuon(), sv.getNgaytra())) {
-                    System.out.println("Them Thong Cong");
-                } else {
-                    System.out.println("Them Thai Bai");
+            ModelMuonTra modelMuonTra=new ModelMuonTra();
+            for (Quanlymuontra sv:
+                    ds) {
+                if (!ds.contains(sv.getTennguoimuon())&&!ds.contains(sv.getSdt())&&!ds.contains(sv.getTensach())&& !ds.contains(sv.getNgaymuon())) {
+                    if (modelMuonTra.LuuMuonTra(null,sv.getTennguoimuon(), sv.getSdt(), sv.getTensach(), sv.getNgaymuon(), sv.getNgaytra())) {
+                        System.out.println("Them Thong Cong");
+                    } else {
+                        System.out.println("Them Thai Bai");
+                    }
                 }
             }
         }
     }
+    public void Xoa(){
+        Quanlymuontra layTen=tbView.getSelectionModel().getSelectedItem();
+        ModelMuonTra modelTheSV=new ModelMuonTra();
+        if (modelTheSV.Xoa(layTen)){
+        }
+        tbView.getItems().remove(layTen);
+    }
     public void Tim(){
+        dsTim.remove(0,dsTim.size());
+        ModelMuonTra modelTheSV=new ModelMuonTra();
+        dsTim.addAll(modelTheSV.Tim(nhapTen.getText()));
+        System.out.println(dsTim.size());
+        tbView.setItems(dsTim);
+    }
+    public void Home(){
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../quanlythuvien/project.fxml"));
+            Main.menuStage.setTitle("Hello World");
+            Main.menuStage.setScene(new Scene(root, 1283, 813));
+            Main.menuStage.show();
+        }
+        catch (Exception e){
 
+        }
     }
 }
