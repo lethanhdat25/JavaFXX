@@ -56,7 +56,6 @@ public class Controller implements Initializable {
     public TableColumn<ThongTinSach,Integer> SL;
     public TableColumn<ThongTinSach,String> MNXB;
     public TableColumn<ThongTinSach,Integer> NNXB;
-    public static ThongTinSach editThongTinSach;
     public void add(){
         String ts = Tensach.getText();
         String tl = Theloai.getText();
@@ -64,27 +63,22 @@ public class Controller implements Initializable {
         Integer sl = Integer.parseInt(Soluong.getText()) ;
         String mnxb = MaNXB.getText();
         Integer nnxb = Integer.parseInt(NamNXB.getText());
-        if (ts.isEmpty() && tl.isEmpty() && tt.isEmpty() && sl!=null && mnxb.isEmpty() && nnxb!=null ){
-            if(editThongTinSach != null){
-                editThongTinSach.setTensach(ts);
-                editThongTinSach.setTheloai(tl);
-                editThongTinSach.setTinhtrang(tt);
-                editThongTinSach.setSoluong(sl);
-                editThongTinSach.setMaNXB(mnxb);
-                editThongTinSach.setNamNXB(nnxb);
-                for (ThongTinSach x: ds){
-                    if (x.getMasach() == editThongTinSach.getMasach()){
-                        x = editThongTinSach;
-                        break;
-                    }
-                }
-                tbView.refresh();
-            }else{
+        if (!ts.isEmpty() && !tl.isEmpty() && !tt.isEmpty() && sl != null && !mnxb.isEmpty() && nnxb != null ){
                 ThongTinSach tts = new ThongTinSach(null,ts,tl,tt,sl,mnxb,nnxb);
                 ds.add(tts);
                 tbView.setItems(ds);
-            }
-            editThongTinSach = null;
+                try {
+                    ModelSach modelSach=new ModelSach();
+                    for (ThongTinSach x:
+                            ds) {
+                        if(modelSach.save(x.getMasach(),x.getTensach(),x.getTheloai(),x.getTinhtrang(),x.getSoluong(),x.getMaNXB(),x.getNamNXB())){
+                            System.out.println("Them Thanh Cong");
+                        }else {
+                            System.out.println("Them Thai Bai");
+                        }
+                    }
+                }catch (Exception e){}
+
             Tensach.setText("") ;
             Theloai.setText("") ;
             Tinhtrang.setText("") ;
@@ -102,28 +96,7 @@ public class Controller implements Initializable {
         }
         tbView.getItems().remove(layTen);
     }
-    public void save(){
-        ModelSach modelSach=new ModelSach();
-        for (ThongTinSach x:
-             ds) {
-            if(modelSach.save(x.getMasach(),x.getTensach(),x.getTheloai(),x.getTinhtrang(),x.getSoluong(),x.getMaNXB(),x.getNamNXB())){
-                System.out.println("Them Thanh Cong");
-            }else {
-                System.out.println("Them Thai Bai");
-            }
-        }
-    }
-    public void fix(){
-        editThongTinSach = null;
-        ThongTinSach thongTinSach = tbView.getSelectionModel().getSelectedItem();
-        Tensach.setText(thongTinSach.getTensach());
-        Theloai.setText(thongTinSach.getTheloai());
-        Tinhtrang.setText(thongTinSach.getTinhtrang());
-        Soluong.setText(thongTinSach.getSoluong().toString());
-        MaNXB.setText(thongTinSach.getMaNXB());
-        NamNXB.setText(thongTinSach.getNamNXB().toString());
-        editThongTinSach = thongTinSach;
-    }
+
     public void search(){
         dsSearch.remove(0,dsSearch.size());
         ModelSach modelSach = new ModelSach();
