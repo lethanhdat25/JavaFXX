@@ -29,7 +29,7 @@
       <Button layoutX="43.0" layoutY="537.0" mnemonicParsing="false" onAction="#Tim" prefHeight="31.0" prefWidth="100.0" text="Tìm" />
       <DatePicker fx:id="ngayMuon" layoutX="43.0" layoutY="308.0" prefHeight="31.0" prefWidth="240.0" promptText="Ngày mượn" />
       <DatePicker fx:id="ngayTra" layoutX="43.0" layoutY="356.0" prefHeight="31.0" prefWidth="240.0" promptText="Ngày trả" />
-      <Button layoutX="183.0" layoutY="438.0" mnemonicParsing="false" onAction="#Them" prefHeight="31.0" prefWidth="100.0" text="Xóa" />
-      <Button layoutX="1136.0" layoutY="762.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Trang chủ" />
+      <Button layoutX="183.0" layoutY="438.0" mnemonicParsing="false" onAction="#Xoa" prefHeight="31.0" prefWidth="100.0" text="Xóa" />
+      <Button layoutX="1136.0" layoutY="762.0" mnemonicParsing="false" onAction="#Home" prefHeight="31.0" prefWidth="100.0" text="Trang chủ" />
    </children>
 </Pane>
